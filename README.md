@@ -175,3 +175,86 @@ An insanely pretty cheat sheet for postgres !
 	SUM:
 
 		SELECT SUM(<column_name>) FROM <table_name>;
+
+## COALESCE :
+
+	Will return a default value for a column if it is supposed to by a null value
+
+	SELECT COALESCE(<column_name>, "string to return when its null") FROM <table_name>
+
+## NULLIF :
+ 
+    Will return null if the given two arguments are equal instead of throwing an error.
+
+## DATE & TIMESTAMP :
+
+	NOW :
+
+		Will return current date, month and year along with time
+
+		SELECT NOW()
+
+	DATE :
+	
+		Function used to get date along from NOW() function.
+
+		SELECT NOW()::DATE;
+
+	TIME :
+	
+		Function used to get current time from NOW() function.
+
+		SELECT NOW()::TIME;
+
+	Manipulating date to substract and add data:
+	
+		INTERVAL YEARS:
+
+			SELECT NOW() - INTERVAL '<number> YEARS'; 	
+
+			SELECT NOW() + INTERVAL '<number> YEARS';	
+
+			EX : SELECT NOW () - INTERVAL '10 YEARS' => Will minus 10 years from now and return it 	    			
+
+		INTERVAL MONTHS:
+
+			SELECT NOW() - INTERVAL '<number> MONTHS';
+
+			SELECT NOW() + INTERVAL '<number> MONTHS';
+
+		INTERVAL DAYS:
+
+			SELECT NOW() - INTERVAL '<number> DAYS';
+
+			SELECT NOW() + INTERVAL '<number> DAYS';
+
+		Getting date alone :
+		
+			SELECT NOW()::DATE + INTERVAL '10 MONTHS';	
+
+	Extracting individual data from a timestamp:
+
+		EXTRACT YEAR:
+
+			SELECT EXTRACT(YEAR FROM NOW()); => return year alone from NOW()
+
+		EXTRACT MONTH:
+		
+			SELECT EXTRACT(YEAR FROM NOW()); => return month alone from NOW()
+
+		EXTRACT DAY:
+		
+			SELECT EXTRACT(YEAR FROM NOW()); => return day alone from NOW()		 		
+
+
+## Constraints :
+
+	PRIMARY KEY:
+
+	FOREIGN KEY:
+
+## JOINS :
+
+	INNER JOIN
+
+	LEFT JOIN			
