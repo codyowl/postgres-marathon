@@ -309,6 +309,31 @@ An insanely pretty cheat sheet for postgres !
 
 	FOREIGN KEY:
 
+		Defining foreign key at the time of table creation :
+
+		CREATE TABLE <talbe_name_1> ( <column_name_1>, <column_name_2>, <foreign_key_column_name> REFERENCES <table_name_2> UNIQUE (<foreign_key_column_name>);
+
+		Note : The table which got refered in REFERENCES should be created first.
+
+		[Diving Deep into Foreign Key]() 
+
+## ON CONFLICT :
+
+	Exception handling, will do nothing when exceptin occurs
+
+	<inserting_query> 
+	ON CONFLICT (<column_name>) DO NOTHING
+
+	NOTE : Having a column name as unique constraing will raise an error when we add duplicate value to it, having ON CONFLICT will simply wont do anything if it does have a duplicate value for the column name
+
+	ON CONFLICT DO UPDATE :
+
+	Will update things when the row exists or create a new one
+
+	<insert query>
+	ON CONFLICT DO UPDATE SET <column_name> = EXCLUDED.<column_name>
+
+
 ## JOINS :
 
 	INNER JOIN
