@@ -251,6 +251,19 @@ An insanely pretty cheat sheet for postgres !
 
 	PRIMARY KEY:
 
+		Defining primary key while creating a table:
+
+			CREATE TABLE <table_name> ( <column_name> NOT NULL PRIMARY KEY);
+
+		Dropping primary key:
+		
+			ALTER TABLE <table_name> DROP CONSTRAINT <primary_key_index_name> => \d <table_name> will return the primary key index name	
+
+		Adding primary key:
+
+			ALTER TABLE <table_name> ADD PRIMARY KEY <column_name>; => Adding a primary key to a column name is possible only if it contains unique value in populated data in a table
+
+
 	FOREIGN KEY:
 
 ## JOINS :
