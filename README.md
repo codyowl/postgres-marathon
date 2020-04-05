@@ -257,12 +257,27 @@ An insanely pretty cheat sheet for postgres !
 
 		Dropping primary key:
 		
-			ALTER TABLE <table_name> DROP CONSTRAINT <primary_key_index_name> => \d <table_name> will return the primary key index name	
+			ALTER TABLE <table_name> DROP CONSTRAINT <primary_key_index_name> => \d <table_name> will return the primary key constraint name	
 
 		Adding primary key:
 
 			ALTER TABLE <table_name> ADD PRIMARY KEY <column_name>; => Adding a primary key to a column name is possible only if it contains unique value in populated data in a table
 
+	UNIQUE :
+
+		Adding unique constraint with constraint name:
+
+			ALTER TABLE <table_name> ADD CONSTRAINT <unique_constraint_name> UNIQUE(<column_name>); => Adding a unique key constraint is possible only if the table contains unique populated data
+
+		Dropping unique key:
+		
+			ALTER TABLE <table_name> DROP CONSTRAINT <unique_key_constraint_name> => \dt will return the unique key constraint name	
+
+		Adding unique key constrain without constrain name:
+		
+			ALTER TABLE <table_name> ADD UNIQUE(<column_name>); => This will create an unique key constrain by a random name which can be seen using \d	
+
+			
 
 	FOREIGN KEY:
 
