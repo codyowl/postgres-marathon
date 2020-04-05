@@ -324,7 +324,7 @@ An insanely pretty cheat sheet for postgres !
 
 			Make sure to delete the Foreign key which got refered in the row before deleting the row.
 
-		[Diving Deep into Foreign Key]() 
+		[Diving Deep into Foreign Key](WIP) 
 
 ## ON CONFLICT :
 
@@ -362,5 +362,15 @@ An insanely pretty cheat sheet for postgres !
 
 		Note : This will return all the rows joining table one and two including null values
 
-	[DIVING DEEP INTO JOINS]()	
+	[DIVING DEEP INTO JOINS](WIP)
+
+## Data extraction and importion:
+
+	Extracting data to a csv file:
+
+		\copy (<query>) TO 'path/to/filename.csv' DELIMITER ',' CSV HEADER;
+
+## Extensions :
+
+			 		
 
