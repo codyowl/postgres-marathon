@@ -49,6 +49,16 @@ An insanely pretty cheat sheet for postgres !
 
 		INSERT INTO <table_name> (<column_name1>, <column_name2>) values ("value1", "value2");
 
+## Update queries :
+
+	- Updating a row :
+
+		UPDATE <table_name> SET <column_name> = 'value' WHERE <condition>;
+
+	- Updating multiple column name's values
+	
+		UPDATE <table_name> SET <column_name_1> = 'value 1', <column_name_2> = 'value 2' WHERE <condition>;			
+
 ## Select queries:
 
 	- Selecting all the records from a table:
