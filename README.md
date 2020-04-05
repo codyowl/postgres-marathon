@@ -10,6 +10,7 @@ An insanely pretty cheat sheet for postgres !
 	\d <table_name> : description about a single table
 	\dt   : list out all the tables
 	\i <sqlfilepath/sqlfile.sql> : to dump a sql file to postgres
+	\x : will display the result in expanded way
 
 
 ## create and delete queries:
@@ -293,6 +294,10 @@ An insanely pretty cheat sheet for postgres !
 
 			NOTE : This will create an unique key constrain by a random name which can be seen using \d	
 
+	Things to Note:
+	
+		You can have n number of UNIQUE key in a table but you can have only on PRIMARY KEY		
+
 	CHECK CONSTRAINT :	
 
 		Used to do string based validation for a column.Ex : Allowing only male of female to a column named gender.
@@ -311,9 +316,13 @@ An insanely pretty cheat sheet for postgres !
 
 		Defining foreign key at the time of table creation :
 
-		CREATE TABLE <talbe_name_1> ( <column_name_1>, <column_name_2>, <foreign_key_column_name> REFERENCES <table_name_2> UNIQUE (<foreign_key_column_name>);
+			CREATE TABLE <talbe_name_1> ( <column_name_1>, <column_name_2>, <foreign_key_column_name> REFERENCES <table_name_2> UNIQUE (<foreign_key_column_name>);
 
 		Note : The table which got refered in REFERENCES should be created first.
+
+		Deleting Foreign key rows:
+
+			Make sure to delete the Foreign key which got refered in the row before deleting the row.
 
 		[Diving Deep into Foreign Key]() 
 
@@ -336,6 +345,22 @@ An insanely pretty cheat sheet for postgres !
 
 ## JOINS :
 
-	INNER JOIN
+	INNER JOIN :
 
-	LEFT JOIN			
+		SELECT * FROM <table_name_1> JOIN <table_name_2> ON table_name_1.column_name = table_name_2.column_name
+
+		Selecting multiple column name:
+
+			SELECT table_name_1.column_name_1, table_name_2.column_name_1, table_name_2.column_name_2
+			FROM <table_name_1>
+			JOIN <table_name_2> ON <table_name_1>.column_name_1 = <table_name_2>.column_name_1
+
+	LEFT JOIN :
+
+		SELECT * FROM <table_name_1> 
+		LEFT JOIN <table_name_2> ON table_name_2.column_name1 = table_name_1.column_name1
+
+		Note : This will return all the rows joining table one and two including null values
+
+	[DIVING DEEP INTO JOINS]()	
+
