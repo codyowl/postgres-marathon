@@ -249,7 +249,7 @@ An insanely pretty cheat sheet for postgres !
 
 ## Constraints :
 
-	PRIMARY KEY:
+	PRIMARY KEY CONSTRAINT:
 
 		Defining primary key while creating a table:
 
@@ -263,21 +263,39 @@ An insanely pretty cheat sheet for postgres !
 
 			ALTER TABLE <table_name> ADD PRIMARY KEY <column_name>; => Adding a primary key to a column name is possible only if it contains unique value in populated data in a table
 
-	UNIQUE :
+	UNIQUE CONSTRAINT:
 
 		Adding unique constraint with constraint name:
 
-			ALTER TABLE <table_name> ADD CONSTRAINT <unique_constraint_name> UNIQUE(<column_name>); => Adding a unique key constraint is possible only if the table contains unique populated data
+			ALTER TABLE <table_name> ADD CONSTRAINT <unique_constraint_name> UNIQUE(<column_name>); 
+
+			NOTE : Adding a unique key constraint is possible only if the table contains unique populated data
 
 		Dropping unique key:
 		
-			ALTER TABLE <table_name> DROP CONSTRAINT <unique_key_constraint_name> => \dt will return the unique key constraint name	
+			ALTER TABLE <table_name> DROP CONSTRAINT <unique_key_constraint_name> 
+
+			NOTE: \dt will return the unique key constraint name	
 
 		Adding unique key constrain without constrain name:
 		
-			ALTER TABLE <table_name> ADD UNIQUE(<column_name>); => This will create an unique key constrain by a random name which can be seen using \d	
+			ALTER TABLE <table_name> ADD UNIQUE(<column_name>); 
 
-			
+			NOTE : This will create an unique key constrain by a random name which can be seen using \d	
+
+	CHECK CONSTRAINT :	
+
+		Used to do string based validation for a column.Ex : Allowing only male of female to a column named gender.
+
+		Adding CHECK constraint:
+
+			ALTER TABLE <table_name> ADD CONSTRAINT <check_constraint_name> CHECK (<column_name> = 'string1' or <column_name> = 'string2') 	
+
+			Ex :
+
+			ALTER TABLE person ADD CONSTRAINT gender_constraint CHECK (gender='Female' OR gender='male') 
+
+			NOTE : Adding check constrain with string validation is possible only if the populdated data contains the mentioned string or else we have to delete the particular row which doesn't contains the mentioned strings on CHECK constraint
 
 	FOREIGN KEY:
 
