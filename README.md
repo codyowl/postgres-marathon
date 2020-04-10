@@ -6,9 +6,13 @@ An insanely pretty cheat sheet for postgres !
 
 	\l    : list out database
 	\c    : connect to a database
+	
 	\d    : describe all the table
 	\d <table_name> : description about a single table
 	\dt   : list out all the tables
+	\dn : list out all the schemas
+	\dt <schema_name>. : list out all the tables inside the schema note : '.' should be placed at the end
+	
 	\i <sqlfilepath/sqlfile.sql> : to dump a sql file to postgres
 	\x : will display the result in expanded way
 
@@ -65,6 +69,10 @@ An insanely pretty cheat sheet for postgres !
 	- Selecting all the records from a table:
 
 		SELECT * FROM <table_name>;
+
+	- Selection all the records from a table inside the schema:
+	
+		SELECT * FROM <schema_name>.<table_name>;	
 
 	- Selecting particular column from a table:
 	
